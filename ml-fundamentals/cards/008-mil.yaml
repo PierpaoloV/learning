@@ -1,0 +1,22 @@
+id: 008
+tags: [weakly-supervised, mil, computational-pathology]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is Multiple Instance Learning (MIL)? How is it applied to WSI analysis?
+back: |
+  MIL: a weakly-supervised paradigm where labels are assigned to bags (groups),
+  not individual instances. A bag is positive if ≥1 instance is positive.
+
+  In WSI analysis:
+  - Bag = whole slide image (gigapixel, can't fit in GPU memory).
+  - Instances = patches (e.g. 256×256 at 20× magnification).
+  - Label = slide-level (e.g. cancer grade, subtype) — no patch annotations needed.
+
+  Common approaches:
+  - ABMIL (Attention-Based MIL): learns an attention score per patch;
+    aggregates into slide embedding → classification head.
+  - TransMIL: transformer encoder over patch embeddings for spatial context.
+  - CLAM: adds instance-level clustering constraints for better interpretability.
+
+  Key advantage: avoids expensive patch-level annotation by pathologists.

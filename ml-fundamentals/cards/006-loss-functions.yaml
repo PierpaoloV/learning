@@ -1,0 +1,24 @@
+id: 006
+tags: [theory, loss-functions, ml-fundamentals]
+last_reviewed: null
+ease: 2.5
+front: |
+  Compare Cross-Entropy, MSE, and Focal Loss. When do you use each?
+back: |
+  Cross-Entropy (classification):
+    L = -Σ y·log(p)
+    Use when: standard classification; well-calibrated probabilities.
+
+  MSE (regression):
+    L = (y - ŷ)²
+    Use when: continuous outputs; sensitive to outliers (use MAE if outliers present).
+
+  Focal Loss (imbalanced classification):
+    L = -α(1-p)^γ · log(p)
+    Downweights easy examples (high confidence correct predictions).
+    Use when: severe class imbalance (e.g. object detection, medical imaging).
+    γ=2 is standard; higher γ = more focus on hard examples.
+
+  Dice Loss (segmentation):
+    L = 1 - 2|A∩B| / (|A|+|B|)
+    Use when: pixel-level binary segmentation with imbalanced foreground/background.

@@ -1,0 +1,27 @@
+id: 010
+tags: [llm, rlhf, alignment]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is RLHF? Describe its three stages and main weaknesses.
+back: |
+  RLHF (Reinforcement Learning from Human Feedback) aligns LLMs to human preferences.
+
+  Stage 1 — Supervised Fine-Tuning (SFT):
+    Fine-tune pretrained LLM on high-quality human demonstrations.
+
+  Stage 2 — Reward Model (RM):
+    Humans rank pairs of model outputs. Train a regression model to predict
+    a scalar reward score from (prompt, response).
+
+  Stage 3 — RL Fine-Tuning (PPO):
+    Use PPO to optimize the LLM policy against the RM reward,
+    with a KL penalty to prevent diverging from the SFT model.
+
+  Weaknesses:
+  - Reward hacking: model finds outputs that fool the RM without being better.
+  - Expensive: requires human annotators and RL stability tricks.
+  - RM overfitting: RM is imperfect proxy for true human preference.
+
+  Modern alternative: DPO (Direct Preference Optimization) — skips RM,
+  optimizes preferences directly. Simpler and competitive with RLHF.

@@ -1,0 +1,13 @@
+id: 001
+tags: [transformers, attention, deep-learning]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is scaled dot-product attention and why is it scaled?
+back: |
+  Attention(Q, K, V) = softmax(QKᵀ / √d_k) · V
+
+  Q, K, V are query, key, value matrices (linear projections of the input).
+  The score QKᵀ measures compatibility between each query and all keys.
+  Scaling by √d_k prevents the dot products from growing large in high
+  dimensions, which would push softmax into regions of near-zero gradient.
