@@ -1,18 +1,21 @@
-id: 016
-tags: [deep-learning, training, optimization]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is the vanishing gradient problem? How do modern architectures solve it?
-back: |
-  In deep networks, gradients are products of many Jacobians via chain rule.
-  If weights are small (< 1), repeated multiplication → gradients shrink exponentially.
-  Early layers receive near-zero gradients → they don't learn.
+id: 14
+tags:
+- deep-learning
+- training
+- optimization
+last_reviewed: '2026-04-18'
+ease: 2.36
+front: 'What is the vanishing gradient problem? How do modern architectures solve
+  it?
 
-  Solutions:
-  1. Residual connections (ResNet): x + F(x) — gradient highway, avoids multiplication chain.
-  2. Careful initialization: Xavier/Glorot (tanh), He/Kaiming (ReLU) — keeps variance stable.
-  3. Activation functions: ReLU has gradient 1 for positive inputs (no saturation).
-     Problem: dying ReLU. Fix: LeakyReLU, GELU.
-  4. Gradient clipping: caps gradient norm to prevent explosion (used in RNNs/transformers).
-  5. BatchNorm / LayerNorm: normalizes activations, keeps them in healthy gradient regions.
+  '
+back: "In deep networks, gradients are products of many Jacobians via chain rule.\n\
+  If weights are small (< 1), repeated multiplication → gradients shrink exponentially.\n\
+  Early layers receive near-zero gradients → they don't learn.\n\nSolutions:\n1. Residual\
+  \ connections (ResNet): x + F(x) — gradient highway, avoids multiplication chain.\n\
+  2. Careful initialization: Xavier/Glorot (tanh), He/Kaiming (ReLU) — keeps variance\
+  \ stable.\n3. Activation functions: ReLU has gradient 1 for positive inputs (no\
+  \ saturation).\n   Problem: dying ReLU. Fix: LeakyReLU, GELU.\n4. Gradient clipping:\
+  \ caps gradient norm to prevent explosion (used in RNNs/transformers).\n5. BatchNorm\
+  \ / LayerNorm: normalizes activations, keeps them in healthy gradient regions.\n"
+interval: 6

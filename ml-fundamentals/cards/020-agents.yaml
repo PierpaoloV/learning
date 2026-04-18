@@ -1,27 +1,22 @@
-id: 020
-tags: [llm, agents, tools]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is an LLM agent? What are the main failure modes?
-back: |
-  An LLM agent is an LLM that iteratively reasons and takes actions using tools
-  (web search, code execution, APIs, databases) to complete a multi-step task.
+id: 16
+tags:
+- llm
+- agents
+- tools
+last_reviewed: '2026-04-18'
+ease: 1.96
+front: 'What is an LLM agent? What are the main failure modes?
 
-  Core loop (ReAct pattern):
-    Thought → Action → Observation → Thought → ... → Final Answer
-
-  Key components:
-  - Planning: decompose the goal into steps (Chain-of-Thought, Tree-of-Thought)
-  - Memory: in-context (recent history), external (vector store), episodic
-  - Tools: any callable function the model can invoke
-  - Reflection: self-critique to catch errors before committing
-
-  Main failure modes:
-  1. Hallucinating tool outputs or inventing facts
-  2. Getting stuck in loops (repeated same action)
-  3. Ignoring tool output and relying on parametric memory
-  4. Context window overflow in long tasks
-  5. Prompt injection from adversarial tool outputs
-
-  Mitigation: structured output parsing, max-step limits, human-in-the-loop checkpoints.
+  '
+back: "An LLM agent is an LLM that iteratively reasons and takes actions using tools\n\
+  (web search, code execution, APIs, databases) to complete a multi-step task.\n\n\
+  Core loop (ReAct pattern):\n  Thought → Action → Observation → Thought → ... → Final\
+  \ Answer\n\nKey components:\n- Planning: decompose the goal into steps (Chain-of-Thought,\
+  \ Tree-of-Thought)\n- Memory: in-context (recent history), external (vector store),\
+  \ episodic\n- Tools: any callable function the model can invoke\n- Reflection: self-critique\
+  \ to catch errors before committing\n\nMain failure modes:\n1. Hallucinating tool\
+  \ outputs or inventing facts\n2. Getting stuck in loops (repeated same action)\n\
+  3. Ignoring tool output and relying on parametric memory\n4. Context window overflow\
+  \ in long tasks\n5. Prompt injection from adversarial tool outputs\n\nMitigation:\
+  \ structured output parsing, max-step limits, human-in-the-loop checkpoints.\n"
+interval: 1

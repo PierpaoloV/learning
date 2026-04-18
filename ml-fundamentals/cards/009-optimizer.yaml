@@ -1,24 +1,20 @@
 id: 009
-tags: [optimization, training, deep-learning]
-last_reviewed: null
-ease: 2.5
-front: |
-  Compare SGD, Adam, and AdamW. When would you choose each?
-back: |
-  SGD (+ momentum):
-    Update: θ ← θ - lr · ∇L (+ momentum term)
-    Pros: simple, generalizes well with tuning, standard for CV.
-    Cons: sensitive to lr; requires careful scheduling.
+tags:
+- optimization
+- training
+- deep-learning
+last_reviewed: '2026-04-18'
+ease: 2.18
+front: 'Compare SGD, Adam, and AdamW. When would you choose each?
 
-  Adam:
-    Adapts lr per parameter using first (m) and second (v) moment estimates.
-    Update: θ ← θ - lr · m̂ / (√v̂ + ε)
-    Pros: fast convergence, robust to lr choice.
-    Cons: can overfit; weight decay is incorrect (decays adapted lr, not weights).
-
-  AdamW:
-    Fixes Adam's weight decay: applies decay directly to weights, not gradient.
-    θ ← θ - lr · (m̂ / (√v̂ + ε) + λθ)
-    Use when: transformers, LLMs — it's the default optimizer for most modern models.
-
-  Rule of thumb: AdamW for transformers/LLMs; SGD+momentum for ResNets/CNNs.
+  '
+back: "SGD (+ momentum):\n  Update: θ ← θ - lr · ∇L (+ momentum term)\n  Pros: simple,\
+  \ generalizes well with tuning, standard for CV.\n  Cons: sensitive to lr; requires\
+  \ careful scheduling.\n\nAdam:\n  Adapts lr per parameter using first (m) and second\
+  \ (v) moment estimates.\n  Update: θ ← θ - lr · m̂ / (√v̂ + ε)\n  Pros: fast convergence,\
+  \ robust to lr choice.\n  Cons: can overfit; weight decay is incorrect (decays adapted\
+  \ lr, not weights).\n\nAdamW:\n  Fixes Adam's weight decay: applies decay directly\
+  \ to weights, not gradient.\n  θ ← θ - lr · (m̂ / (√v̂ + ε) + λθ)\n  Use when: transformers,\
+  \ LLMs — it's the default optimizer for most modern models.\n\nRule of thumb: AdamW\
+  \ for transformers/LLMs; SGD+momentum for ResNets/CNNs.\n"
+interval: 1

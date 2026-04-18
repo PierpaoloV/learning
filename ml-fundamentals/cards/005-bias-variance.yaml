@@ -1,20 +1,19 @@
-id: 005
-tags: [theory, generalization, ml-fundamentals]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is the bias-variance tradeoff? How do you diagnose and fix each?
-back: |
-  Expected error = Bias² + Variance + Irreducible noise
+id: 5
+tags:
+- theory
+- generalization
+- ml-fundamentals
+last_reviewed: '2026-04-18'
+ease: 1.96
+front: 'What is the bias-variance tradeoff? How do you diagnose and fix each?
 
-  Bias: error from wrong assumptions (underfitting).
-    Signs: high train error AND high val error.
-    Fix: more complex model, more features, less regularization.
-
-  Variance: sensitivity to training data fluctuations (overfitting).
-    Signs: low train error, high val error (large gap).
-    Fix: more data, regularization (L1/L2, dropout), simpler model, ensembling.
-
-  The tradeoff: reducing bias often increases variance and vice versa.
-  Deep learning partially breaks this with overparameterized models
-  that generalize well (double-descent phenomenon).
+  '
+back: "Expected error = Bias² + Variance + Irreducible noise\n\nBias: error from wrong\
+  \ assumptions (underfitting).\n  Signs: high train error AND high val error.\n \
+  \ Fix: more complex model, more features, less regularization.\n\nVariance: sensitivity\
+  \ to training data fluctuations (overfitting).\n  Signs: low train error, high val\
+  \ error (large gap).\n  Fix: more data, regularization (L1/L2, dropout), simpler\
+  \ model, ensembling.\n\nThe tradeoff: reducing bias often increases variance and\
+  \ vice versa.\nDeep learning partially breaks this with overparameterized models\n\
+  that generalize well (double-descent phenomenon).\n"
+interval: 1

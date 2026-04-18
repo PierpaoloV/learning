@@ -1,27 +1,50 @@
-id: 017
-tags: [training, computer-vision, generalization]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is data augmentation? Give examples for images and for NLP/LLMs.
-back: |
-  Data augmentation artificially expands training data by applying label-preserving transformations,
+id: 15
+tags:
+- training
+- computer-vision
+- generalization
+last_reviewed: '2026-04-18'
+ease: 2.6
+front: 'What is data augmentation? Give examples for images and for NLP/LLMs.
+
+  '
+back: 'Data augmentation artificially expands training data by applying label-preserving
+  transformations,
+
   improving generalization and reducing overfitting.
 
+
   Computer Vision:
+
   - Geometric: random crop, flip, rotation, affine transforms
+
   - Color: brightness/contrast jitter, grayscale, color drop
+
   - Cutout / Random Erasing: mask out patches
+
   - Mixup: blend two images + blend their labels
+
   - CutMix: paste crop of one image into another
+
   - Strong: RandAugment, AugMix (composite policies)
 
+
   NLP / LLMs:
+
   - Synonym replacement, random insertion/deletion
+
   - Back-translation (translate to another language and back)
+
   - Paraphrasing with an LLM
+
   - Token masking (used in MLM pretraining — BERT)
 
+
   Pathology-specific:
+
   - Stain normalization / stain augmentation (Macenko, Reinhard)
+
   - Elastic deformations for tissue structure variation
+
+  '
+interval: 6

@@ -1,21 +1,19 @@
-id: 004
-tags: [transformers, architecture, deep-learning]
-last_reviewed: null
-ease: 2.5
-front: |
-  Describe the full Transformer encoder block. What are its components and order?
-back: |
-  Each encoder layer has two sub-layers:
-  1. Multi-Head Self-Attention (MHSA)
-     - h parallel attention heads, each with its own Q/K/V projections
-     - outputs concatenated and projected back
-  2. Position-wise Feed-Forward Network (FFN)
-     - Two linear layers with a ReLU/GELU in between
-     - Applied independently to each position
+id: 4
+tags:
+- transformers
+- architecture
+- deep-learning
+last_reviewed: '2026-04-18'
+ease: 1.96
+front: 'Describe the full Transformer encoder block. What are its components and order?
 
-  Each sub-layer is wrapped with:
-  - Residual connection: x + sublayer(x)
-  - Layer Normalization (Pre-LN in modern variants)
-
-  Positional encodings are added to embeddings at the input to inject
-  sequence order (sinusoidal or learned).
+  '
+back: "Each encoder layer has two sub-layers:\n1. Multi-Head Self-Attention (MHSA)\n\
+  \   - h parallel attention heads, each with its own Q/K/V projections\n   - outputs\
+  \ concatenated and projected back\n2. Position-wise Feed-Forward Network (FFN)\n\
+  \   - Two linear layers with a ReLU/GELU in between\n   - Applied independently\
+  \ to each position\n\nEach sub-layer is wrapped with:\n- Residual connection: x\
+  \ + sublayer(x)\n- Layer Normalization (Pre-LN in modern variants)\n\nPositional\
+  \ encodings are added to embeddings at the input to inject\nsequence order (sinusoidal\
+  \ or learned).\n"
+interval: 1

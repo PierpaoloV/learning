@@ -1,19 +1,18 @@
-id: 003
-tags: [deep-learning, normalization, training]
-last_reviewed: null
-ease: 2.5
-front: |
-  What does Batch Normalization do and why does it help training?
-back: |
-  BatchNorm normalizes each feature across the mini-batch to zero mean and
-  unit variance, then applies learnable scale (γ) and shift (β):
-    x̂ = (x − μ_B) / √(σ²_B + ε)
-    y = γx̂ + β
+id: 3
+tags:
+- deep-learning
+- normalization
+- training
+last_reviewed: '2026-04-18'
+ease: 2.18
+front: 'What does Batch Normalization do and why does it help training?
 
-  Benefits:
-  - Reduces internal covariate shift → allows higher learning rates
-  - Acts as mild regularizer (noise from batch statistics)
-  - Smooths the loss landscape
-
-  Caveat: behaves differently at train vs. inference (uses running stats at test time).
-  Poor fit for small batches or sequence models → use LayerNorm instead.
+  '
+back: "BatchNorm normalizes each feature across the mini-batch to zero mean and\n\
+  unit variance, then applies learnable scale (γ) and shift (β):\n  x̂ = (x − μ_B)\
+  \ / √(σ²_B + ε)\n  y = γx̂ + β\n\nBenefits:\n- Reduces internal covariate shift\
+  \ → allows higher learning rates\n- Acts as mild regularizer (noise from batch statistics)\n\
+  - Smooths the loss landscape\n\nCaveat: behaves differently at train vs. inference\
+  \ (uses running stats at test time).\nPoor fit for small batches or sequence models\
+  \ → use LayerNorm instead.\n"
+interval: 1

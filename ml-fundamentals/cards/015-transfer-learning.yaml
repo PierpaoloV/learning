@@ -1,23 +1,41 @@
-id: 015
-tags: [transfer-learning, fine-tuning, deep-learning]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is transfer learning? Compare full fine-tuning, linear probing, and LoRA.
-back: |
-  Transfer learning: initialize a model from weights pretrained on a large dataset,
+id: 13
+tags:
+- transfer-learning
+- fine-tuning
+- deep-learning
+last_reviewed: '2026-04-18'
+ease: 2.18
+front: 'What is transfer learning? Compare full fine-tuning, linear probing, and LoRA.
+
+  '
+back: 'Transfer learning: initialize a model from weights pretrained on a large dataset,
+
   then adapt to a target task — faster convergence, better performance on small datasets.
 
+
   Full fine-tuning:
+
   - Update all parameters. Best performance but expensive; risk of catastrophic forgetting.
 
+
   Linear probing:
+
   - Freeze backbone, train only the classification head. Fast, cheap.
+
   - Works well when source and target domains are close.
 
+
   LoRA (Low-Rank Adaptation):
+
   - Freeze base model; inject trainable low-rank matrices (A, B) into attention layers.
+
   - W_new = W_0 + α·BA, rank r << d → huge parameter savings.
+
   - Standard for LLM fine-tuning; competitive with full fine-tuning on many tasks.
 
-  Rule of thumb: linear probe first to establish baseline; LoRA for LLMs; full FT only when needed.
+
+  Rule of thumb: linear probe first to establish baseline; LoRA for LLMs; full FT
+  only when needed.
+
+  '
+interval: 1

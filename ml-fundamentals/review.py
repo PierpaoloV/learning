@@ -56,7 +56,7 @@ def main():
 
     print(f"\n=== {len(due)} card(s) due today ===\n")
     for card in due:
-        print(f"[{card['id']:03d}] FRONT:\n{card['front'].strip()}")
+        print(f"[{int(card['id']):03d}] FRONT:\n{card['front'].strip()}")
         input("\n  → Press Enter to reveal answer...")
         print(f"\nBACK:\n{card['back'].strip()}")
         while True:

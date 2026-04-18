@@ -1,21 +1,20 @@
-id: 007
-tags: [llm, rag, agents]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is RAG (Retrieval-Augmented Generation)? What problem does it solve?
-back: |
-  RAG combines a retriever and a generator:
-  1. Retriever: given a query, fetch top-k relevant chunks from a vector store
-     (via embedding similarity, e.g. cosine over FAISS/Pinecone).
-  2. Generator: LLM receives query + retrieved context → produces grounded answer.
+id: 7
+tags:
+- llm
+- rag
+- agents
+last_reviewed: '2026-04-18'
+ease: 1.7
+front: 'What is RAG (Retrieval-Augmented Generation)? What problem does it solve?
 
-  Problem it solves:
-  - LLMs have stale knowledge (training cutoff) and hallucinate facts.
-  - RAG grounds generation in up-to-date, verifiable documents.
-  - Cheaper than fine-tuning for knowledge updates.
-
-  Key failure modes:
-  - Retrieval misses the relevant chunk (recall problem).
-  - LLM ignores retrieved context (faithfulness problem).
-  - Chunk size / overlap affects quality significantly.
+  '
+back: "RAG combines a retriever and a generator:\n1. Retriever: given a query, fetch\
+  \ top-k relevant chunks from a vector store\n   (via embedding similarity, e.g.\
+  \ cosine over FAISS/Pinecone).\n2. Generator: LLM receives query + retrieved context\
+  \ → produces grounded answer.\n\nProblem it solves:\n- LLMs have stale knowledge\
+  \ (training cutoff) and hallucinate facts.\n- RAG grounds generation in up-to-date,\
+  \ verifiable documents.\n- Cheaper than fine-tuning for knowledge updates.\n\nKey\
+  \ failure modes:\n- Retrieval misses the relevant chunk (recall problem).\n- LLM\
+  \ ignores retrieved context (faithfulness problem).\n- Chunk size / overlap affects\
+  \ quality significantly.\n"
+interval: 1

@@ -1,22 +1,21 @@
 id: 008
-tags: [weakly-supervised, mil, computational-pathology]
-last_reviewed: null
+tags:
+- weakly-supervised
+- mil
+- computational-pathology
+last_reviewed: '2026-04-18'
 ease: 2.5
-front: |
-  What is Multiple Instance Learning (MIL)? How is it applied to WSI analysis?
-back: |
-  MIL: a weakly-supervised paradigm where labels are assigned to bags (groups),
-  not individual instances. A bag is positive if ≥1 instance is positive.
+front: 'What is Multiple Instance Learning (MIL)? How is it applied to WSI analysis?
 
-  In WSI analysis:
-  - Bag = whole slide image (gigapixel, can't fit in GPU memory).
-  - Instances = patches (e.g. 256×256 at 20× magnification).
-  - Label = slide-level (e.g. cancer grade, subtype) — no patch annotations needed.
-
-  Common approaches:
-  - ABMIL (Attention-Based MIL): learns an attention score per patch;
-    aggregates into slide embedding → classification head.
-  - TransMIL: transformer encoder over patch embeddings for spatial context.
-  - CLAM: adds instance-level clustering constraints for better interpretability.
-
-  Key advantage: avoids expensive patch-level annotation by pathologists.
+  '
+back: "MIL: a weakly-supervised paradigm where labels are assigned to bags (groups),\n\
+  not individual instances. A bag is positive if ≥1 instance is positive.\n\nIn WSI\
+  \ analysis:\n- Bag = whole slide image (gigapixel, can't fit in GPU memory).\n-\
+  \ Instances = patches (e.g. 256×256 at 20× magnification).\n- Label = slide-level\
+  \ (e.g. cancer grade, subtype) — no patch annotations needed.\n\nCommon approaches:\n\
+  - ABMIL (Attention-Based MIL): learns an attention score per patch;\n  aggregates\
+  \ into slide embedding → classification head.\n- TransMIL: transformer encoder over\
+  \ patch embeddings for spatial context.\n- CLAM: adds instance-level clustering\
+  \ constraints for better interpretability.\n\nKey advantage: avoids expensive patch-level\
+  \ annotation by pathologists.\n"
+interval: 6

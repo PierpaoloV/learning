@@ -1,17 +1,17 @@
-id: 002
-tags: [optimization, backprop, deep-learning]
-last_reviewed: null
+id: 2
+tags:
+- optimization
+- backprop
+- deep-learning
+last_reviewed: '2026-04-18'
 ease: 2.5
-front: |
-  Explain backpropagation. What is the chain rule's role?
-back: |
-  Backprop computes gradients of the loss w.r.t. every parameter by applying
-  the chain rule backwards through the computational graph.
+front: 'Explain backpropagation. What is the chain rule''s role?
 
-  For a composed function L = f(g(x)):
-    dL/dx = (dL/df) · (df/dg) · (dg/dx)
-
-  In a neural net, gradients flow from the output layer back to the input,
-  accumulating products of local Jacobians at each operation.
-  This is efficient because each intermediate gradient is computed once
-  and reused (dynamic programming).
+  '
+back: "Backprop computes gradients of the loss w.r.t. every parameter by applying\n\
+  the chain rule backwards through the computational graph.\n\nFor a composed function\
+  \ L = f(g(x)):\n  dL/dx = (dL/df) · (df/dg) · (dg/dx)\n\nIn a neural net, gradients\
+  \ flow from the output layer back to the input,\naccumulating products of local\
+  \ Jacobians at each operation.\nThis is efficient because each intermediate gradient\
+  \ is computed once\nand reused (dynamic programming).\n"
+interval: 6

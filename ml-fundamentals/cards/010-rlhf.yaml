@@ -1,27 +1,22 @@
-id: 010
-tags: [llm, rlhf, alignment]
-last_reviewed: null
-ease: 2.5
-front: |
-  What is RLHF? Describe its three stages and main weaknesses.
-back: |
-  RLHF (Reinforcement Learning from Human Feedback) aligns LLMs to human preferences.
+id: 8
+tags:
+- llm
+- rlhf
+- alignment
+last_reviewed: '2026-04-18'
+ease: 1.7
+front: 'What is RLHF? Describe its three stages and main weaknesses.
 
-  Stage 1 — Supervised Fine-Tuning (SFT):
-    Fine-tune pretrained LLM on high-quality human demonstrations.
-
-  Stage 2 — Reward Model (RM):
-    Humans rank pairs of model outputs. Train a regression model to predict
-    a scalar reward score from (prompt, response).
-
-  Stage 3 — RL Fine-Tuning (PPO):
-    Use PPO to optimize the LLM policy against the RM reward,
-    with a KL penalty to prevent diverging from the SFT model.
-
-  Weaknesses:
-  - Reward hacking: model finds outputs that fool the RM without being better.
-  - Expensive: requires human annotators and RL stability tricks.
-  - RM overfitting: RM is imperfect proxy for true human preference.
-
-  Modern alternative: DPO (Direct Preference Optimization) — skips RM,
-  optimizes preferences directly. Simpler and competitive with RLHF.
+  '
+back: "RLHF (Reinforcement Learning from Human Feedback) aligns LLMs to human preferences.\n\
+  \nStage 1 — Supervised Fine-Tuning (SFT):\n  Fine-tune pretrained LLM on high-quality\
+  \ human demonstrations.\n\nStage 2 — Reward Model (RM):\n  Humans rank pairs of\
+  \ model outputs. Train a regression model to predict\n  a scalar reward score from\
+  \ (prompt, response).\n\nStage 3 — RL Fine-Tuning (PPO):\n  Use PPO to optimize\
+  \ the LLM policy against the RM reward,\n  with a KL penalty to prevent diverging\
+  \ from the SFT model.\n\nWeaknesses:\n- Reward hacking: model finds outputs that\
+  \ fool the RM without being better.\n- Expensive: requires human annotators and\
+  \ RL stability tricks.\n- RM overfitting: RM is imperfect proxy for true human preference.\n\
+  \nModern alternative: DPO (Direct Preference Optimization) — skips RM,\noptimizes\
+  \ preferences directly. Simpler and competitive with RLHF.\n"
+interval: 1
