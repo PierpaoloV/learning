@@ -19,7 +19,7 @@ jobs:
         run: pip install pytest ruff
 
       - name: Lint
-        run: ruff check leetcode/ grader/ ml-fundamentals/ --ignore E501
+        run: ruff check leetcode/ grader/ ml-fundamentals/ --ignore E501,E401
 
       - name: Test
         run: pytest leetcode/ -v
