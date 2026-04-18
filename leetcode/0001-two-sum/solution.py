@@ -10,5 +10,3 @@ def two_sum(nums: List[int], target: int) -> List[int]:
             result = element1 + element2
             if result == target:
                 return [index1, index2]
-        
-    pass
