@@ -1,0 +1,19 @@
+id: 014
+tags: [llm, inference, systems]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is the KV cache in LLM inference and why is it critical for performance?
+back: |
+  During autoregressive generation, each new token attends to all previous tokens.
+  Without caching, keys and values for all past tokens are recomputed at every step → O(n²) cost.
+
+  KV cache: store the K and V matrices for all past tokens in memory.
+  Each new step only computes K, V for the new token → O(n) per step.
+
+  Cost:
+  - Memory: 2 × n_layers × seq_len × d_model × bytes_per_param
+  - For a 70B model at FP16, a 4K context costs ~several GB of VRAM.
+
+  This is why long-context inference is memory-bound, not compute-bound.
+  Techniques like PagedAttention (vLLM) manage KV cache memory like virtual memory pages.

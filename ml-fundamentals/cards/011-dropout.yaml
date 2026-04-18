@@ -1,0 +1,17 @@
+id: 011
+tags: [regularization, deep-learning, training]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is Dropout and how does it prevent overfitting?
+back: |
+  Dropout randomly zeros a fraction p of neurons during each forward pass at training time.
+  At inference, all neurons are active but outputs are scaled by (1-p).
+
+  Why it works:
+  - Forces the network to learn redundant representations (no single neuron can be relied on)
+  - Approximates training an ensemble of 2^n different networks
+  - Reduces co-adaptation between neurons
+
+  Common values: p=0.5 for FC layers, p=0.1–0.2 for convolutional layers.
+  Not used with BatchNorm (they interact poorly — BatchNorm already regularizes).

@@ -1,0 +1,27 @@
+id: 020
+tags: [llm, agents, tools]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is an LLM agent? What are the main failure modes?
+back: |
+  An LLM agent is an LLM that iteratively reasons and takes actions using tools
+  (web search, code execution, APIs, databases) to complete a multi-step task.
+
+  Core loop (ReAct pattern):
+    Thought → Action → Observation → Thought → ... → Final Answer
+
+  Key components:
+  - Planning: decompose the goal into steps (Chain-of-Thought, Tree-of-Thought)
+  - Memory: in-context (recent history), external (vector store), episodic
+  - Tools: any callable function the model can invoke
+  - Reflection: self-critique to catch errors before committing
+
+  Main failure modes:
+  1. Hallucinating tool outputs or inventing facts
+  2. Getting stuck in loops (repeated same action)
+  3. Ignoring tool output and relying on parametric memory
+  4. Context window overflow in long tasks
+  5. Prompt injection from adversarial tool outputs
+
+  Mitigation: structured output parsing, max-step limits, human-in-the-loop checkpoints.

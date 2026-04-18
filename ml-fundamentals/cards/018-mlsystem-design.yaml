@@ -1,0 +1,21 @@
+id: 018
+tags: [mlops, system-design, ml-fundamentals]
+last_reviewed: null
+ease: 2.5
+front: |
+  What are the key components of a production ML system? What goes wrong most often?
+back: |
+  Components:
+  1. Data pipeline: ingestion, validation, preprocessing, feature store
+  2. Training: experiment tracking (MLflow/W&B), versioning, distributed training
+  3. Evaluation: offline metrics, slice analysis, comparison to baseline/previous model
+  4. Serving: model registry, inference API, batching, latency SLAs
+  5. Monitoring: data drift, concept drift, prediction distribution shift, alerting
+  6. Feedback loop: logging predictions + outcomes for retraining
+
+  What goes wrong most often (in order):
+  1. Data quality / silent data drift — model degrades unnoticed
+  2. Training-serving skew — features computed differently at train vs inference
+  3. No monitoring — nobody notices the model has degraded
+  4. Evaluation on wrong distribution — test set doesn't reflect production
+  5. Reproducibility — can't retrain to the same performance

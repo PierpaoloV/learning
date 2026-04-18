@@ -1,0 +1,19 @@
+id: 013
+tags: [evaluation, metrics, ml-fundamentals]
+last_reviewed: null
+ease: 2.5
+front: |
+  Define Precision, Recall, F1, and AUC-ROC. When do you prioritize each?
+back: |
+  Precision = TP / (TP + FP)  — of predicted positives, how many are correct?
+  Recall    = TP / (TP + FN)  — of actual positives, how many did we catch?
+  F1        = 2 × (P × R) / (P + R)  — harmonic mean, useful when classes are imbalanced
+
+  AUC-ROC: area under the TPR vs FPR curve across all thresholds.
+  Measures ranking quality, independent of threshold. 0.5 = random, 1.0 = perfect.
+
+  When to prioritize:
+  - High Recall: cancer detection (missing a case is worse than a false alarm)
+  - High Precision: spam filter (don't want to block real emails)
+  - F1: imbalanced datasets where both matter
+  - AUC-ROC: comparing models when threshold isn't fixed yet

@@ -1,0 +1,23 @@
+id: 019
+tags: [self-supervised, contrastive, deep-learning]
+last_reviewed: null
+ease: 2.5
+front: |
+  What is contrastive learning? How does SimCLR work?
+back: |
+  Contrastive learning trains a model to produce similar embeddings for augmented
+  views of the same sample (positives) and dissimilar embeddings for different samples (negatives).
+  No labels needed → self-supervised.
+
+  SimCLR:
+  1. Take image x → apply two random augmentations → views x_i, x_j
+  2. Encode both with a shared CNN backbone f(·) → h_i, h_j
+  3. Project to lower dim with MLP g(·) → z_i, z_j
+  4. Minimize NT-Xent loss: maximize cosine similarity of (z_i, z_j),
+     minimize it vs all other samples in the batch (negatives)
+
+  Key insight: large batch size needed for enough negatives.
+  Successor: MoCo uses a memory bank; BYOL/DINO remove negatives entirely.
+
+  Pathology relevance: CONCH, UNI, PLIP are foundation models trained with
+  contrastive learning on histopathology images + reports.

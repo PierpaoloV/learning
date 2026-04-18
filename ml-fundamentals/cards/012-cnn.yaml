@@ -1,0 +1,21 @@
+id: 012
+tags: [computer-vision, cnn, deep-learning]
+last_reviewed: null
+ease: 2.5
+front: |
+  What are the key properties of CNNs that make them suited to image data?
+back: |
+  1. Local connectivity: each neuron connects only to a local region (receptive field),
+     exploiting the locality of image features.
+
+  2. Weight sharing: the same filter is applied across all positions →
+     drastically fewer parameters than FC layers.
+
+  3. Translation equivariance: if the input shifts, the feature map shifts by the same amount.
+     (Pooling adds approximate translation invariance.)
+
+  4. Hierarchical features: early layers detect edges/textures, deeper layers detect
+     objects/semantic concepts.
+
+  Parameter count of a conv layer:
+    (kernel_h × kernel_w × in_channels + 1) × out_channels
