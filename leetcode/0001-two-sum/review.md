@@ -1,5 +1,6 @@
 ## Grading Report
-
+Grade: 6/10                                                                   
+Take-home: Switch to a hash map for O(n) time — store each value's complement as you iterate, avoiding the nested loop.
 ### 1. Correctness: 3/5
 - The solution works for the main cases provided in the tests, but it is not optimal and could miss edge cases due to its inefficiency.
 - The solution does not handle the case where the same element might be reused, although the constraints guarantee that only one valid answer exists.
