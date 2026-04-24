@@ -1,7 +1,9 @@
 ## Grading Report
+Grade: 9/10  
+Take-home: Optimize space usage by leveraging the output array for intermediate calculations.
 
 ### 1. Correctness: 5/5
-- The solution correctly handles all cases, including edge cases such as arrays with zero, negative numbers, and arrays of minimum length. The test cases provided cover a good range of scenarios, and the function passes all of them.
+- The solution correctly handles all cases, including edge cases such as arrays with zeros, negative numbers, and arrays of minimum length. The test cases provided cover a good range of scenarios, and the function passes all of them.
 
 ### 2. Time Complexity: 5/5
 - The solution runs in O(n) time complexity, which is optimal for this problem. The two-pass approach (one for prefix products and one for suffix products) ensures that each element is processed a constant number of times.

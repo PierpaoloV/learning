@@ -29,6 +29,9 @@ Grade the solution on these 5 dimensions (1–5 each):
 
 ## Output format
 Return a markdown report with:
+- `## Grading Report` as the title
+- `Grade: X/10` immediately under the title
+- `Take-home: <one sentence>` immediately under the grade
 - Score per dimension
 - Total score /25
 - Specific improvement suggestions

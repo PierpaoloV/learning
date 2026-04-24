@@ -5,7 +5,12 @@ Examples:
   python grader/grade.py system-design/url-shortener
   python grader/grade.py ml-fundamentals/cards/001-attention.yaml
 """
-import sys, os, pathlib, openai
+import os
+import pathlib
+import re
+import sys
+
+import openai
 
 ROOT = pathlib.Path(__file__).parent.parent
 RUBRICS = pathlib.Path(__file__).parent / "rubrics"
@@ -32,6 +37,49 @@ def _collect_content(path: pathlib.Path) -> str:
     return "\n\n".join(parts)
 
 
+def _required_output_instructions(track: str) -> str:
+    if track != "leetcode":
+        return ""
+    return """## Required Output Format
+Your response must be valid markdown and start exactly like this:
+
+## Grading Report
+Grade: X/10
+Take-home: <one sentence with the main lesson>
+
+Then continue with the rubric breakdown, total score /25, improvement suggestions, and the optimal solution if the submitted one is suboptimal.
+
+Rules:
+- `Grade:` must be a single overall score from 1 to 10.
+- `Take-home:` must be a single concise sentence.
+- Do not omit either line.
+"""
+
+
+def _review_has_required_summary(review: str, track: str) -> bool:
+    if track != "leetcode":
+        return True
+    return bool(
+        re.search(r"(?im)^Grade:\s*\d{1,2}/10\s*$", review)
+        and re.search(r"(?im)^Take-home:\s*.+$", review)
+    )
+
+
+def _build_prompt(track: str, rubric: str, content: str) -> str:
+    output_requirements = _required_output_instructions(track)
+    return f"""You are a senior ML interviewer at a top-tier tech company (Google/Meta/Anthropic level).
+
+## Rubric
+{rubric}
+
+{output_requirements}
+## Submission
+{content}
+
+Grade this submission strictly according to the rubric. Be honest and constructive.
+"""
+
+
 def grade(target: str):
     path = ROOT / target
     if not path.exists():
@@ -41,25 +89,37 @@ def grade(target: str):
     track = _detect_track(path)
     rubric = (RUBRICS / f"{track}.md").read_text()
     content = _collect_content(path)
-
-    prompt = f"""You are a senior ML interviewer at a top-tier tech company (Google/Meta/Anthropic level).
-
-## Rubric
-{rubric}
-
-## Submission
-{content}
-
-Grade this submission strictly according to the rubric. Be honest and constructive.
-"""
+    prompt = _build_prompt(track, rubric, content)
 
     openai.api_key = os.environ["OPENAI_API_KEY"]
-    resp = openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[{"role": "user", "content": prompt}],
-        temperature=0.2,
-    )
-    review = resp.choices[0].message.content.strip()
+    messages = [{"role": "user", "content": prompt}]
+
+    for _ in range(3):
+        resp = openai.chat.completions.create(
+            model="gpt-4o",
+            messages=messages,
+            temperature=0.2,
+        )
+        review = resp.choices[0].message.content.strip()
+        if _review_has_required_summary(review, track):
+            break
+        messages.extend(
+            [
+                {"role": "assistant", "content": review},
+                {
+                    "role": "user",
+                    "content": (
+                        "You omitted the required `Grade: X/10` and/or `Take-home:` "
+                        "summary lines. Rewrite the full review and include both lines "
+                        "at the top exactly as requested."
+                    ),
+                },
+            ]
+        )
+    else:
+        raise RuntimeError(
+            "The LLM response did not include the required summary lines after 3 attempts."
+        )
 
     # Save review
     if path.is_dir():
