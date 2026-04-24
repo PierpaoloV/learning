@@ -98,8 +98,8 @@ Work through these in order — each topic builds on the previous:
 ### Arrays & Hashing
 - [x] 0001-two-sum
 - [x] 0049-group-anagrams
-- [ ] 0217-contains-duplicate
-- [ ] 0238-product-of-array-except-self
+- [x] 0217-contains-duplicate
+- [x] 0238-product-of-array-except-self
 - [ ] 0271-encode-decode-strings
 
 ### Two Pointers
